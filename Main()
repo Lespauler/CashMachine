@@ -1,29 +1,10 @@
-import javax.swing.*;
-import java.awt.*;
 
 public class App {
-    
+       
     public static void main(String[] args) {
-        
-        JFrame frame = new JFrame("Cash Machine");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        //frame.setLocationRelativeTo(null);
-        frame.setLayout(null);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        //frame.setUndecorated(true);
-        frame.setVisible(true); 
-        
-        JLabel title=new JLabel("Project Cash Machine");
-        title.setBounds(650,20, 300, 200);
-        title.setBackground(Color.yellow);
-        
-        JButton button= new JButton("Start");
-        button.setBounds(150, 150, 100,100);
-
-        frame.setSize(600,500);
-        frame.add(title);
-        frame.add(button);
+        CashWindow window=new CashWindow();
+        window.show();
+       
         
     }
 }
