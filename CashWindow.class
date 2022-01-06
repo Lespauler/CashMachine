@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class CashWindow extends JFrame{
+
+    static Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+    JButton button,back;
+    JLabel title;
+    JFrame frame1=new JFrame("yo");
+
+public  void show(){
+    int width=(int)d.getWidth();
+    int height=(int)d.getHeight();
+    
+    frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame1.setVisible(true);
+    
+    title = new JLabel("Project cash Machine");
+    title.setBounds(650,20, 300, 200);
+    title.setBackground(Color.yellow);
+
+    System.out.println(width+" "+height);
+    button=new JButton("Start");
+    button.setBounds(621,344,200,200);
+    button.addActionListener(e-> mainWindow());
+
+    frame1.setSize(600,500);
+    frame1.add(title);
+    frame1.add(button);
+    frame1.setLayout(null);
+    frame1.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+    frame1.setUndecorated(true);
+}
+
+public void mainWindow(){
+    
+    button.setVisible(false);
+    title.setVisible(false);
+    //System.out.println("It worked");
+    back=new JButton("Return to start");
+    frame1.add(back);
+    back.addActionListener(e->show());
+    back.setBounds(621,344,200,200);
+
+    }
+
+}
