@@ -42,7 +42,7 @@ public void addPanel(){
     button.setVisible(true);
     button.setBounds(50, 50, 100, 100);
     startPanel.add(button);
-    button.addActionListener(e->removePanel());
+    button.addActionListener(this);
     
     startPanel.add(title);   
     frame.add(startPanel);
@@ -70,10 +70,17 @@ public  void clearFrame(JPanel panel){
     frame.repaint();
     addPanel();
     }
-
+ 
 public void actionPerformed(ActionEvent e){
     if(e.getSource()==backButton){
     clearFrame(mainPanel);
-        }
+            }
+    if(e.getSource()==button){
+    removePanel();
+           }   
+    }
+    
+public void addMainPanel(){
+
     } 
 }
