@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.*;
 
-public class CashWindow  {
+
+public class CashWindow implements ActionListener {
 
     static Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
     JButton button,backButton;
@@ -22,6 +25,8 @@ public CashWindow(){
 }
 
 public void addPanel(){
+    
+    frame.repaint();
     startPanel=new JPanel();
     startPanel.setLayout(null);
     startPanel.setBackground(new Color(39,27,80));
@@ -56,12 +61,19 @@ public void removePanel(){
     backButton.setBounds(50, 50, 100, 100);
     
     mainPanel.add(backButton);
-
-    backButton.addActionListener(e->frame.remove(startPanel));
+    backButton.addActionListener(this);
     frame.add(mainPanel);
     }
 
-public void addActionListener(){
-     
-}
+public  void clearFrame(JPanel panel){
+    frame.remove(panel);
+    frame.repaint();
+    addPanel();
+    }
+
+public void actionPerformed(ActionEvent e){
+    if(e.getSource()==backButton){
+    clearFrame(mainPanel);
+        }
+    } 
 }
